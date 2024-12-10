@@ -37,7 +37,9 @@
             I did make some sketches ahead of time, as the project/assignment requirements demanded it,
             and its nice to see what I planned come to fruition.
         </p>
-        <!-- TODO - add sketches -->
+        <img class="sketch" src="/1000004995.jpg" alt="Idea Sketch">
+        <img class="sketch" src="/1000004996.jpg" alt="Home page Sketch">
+        <img class="sketch" src="/1000004997.jpg" alt="Navigation Sketch">
         <p>
             I think of programming as an art form to some extent.
             Theres not usually a 'correct' way to do things at a high level, rather, tradeoffs with each choice.
@@ -172,5 +174,8 @@
     }
     figure.picasso figcaption {
         width: 90%;
+    }
+    img.sketch {
+        width: 30%;
     }
 </style>
