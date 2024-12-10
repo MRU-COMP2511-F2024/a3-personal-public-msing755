@@ -1,13 +1,18 @@
 <script lang="ts">
-    import DraggableImg from '$lib/DraggableImg.svelte';
-import type { PageData } from './$types';
+    import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
 
     let clicking = $state(false)
     let isMobile = $state(false)
+    let iframe: HTMLIFrameElement
 
-    $effect(() => {isMobile = window.innerHeight > window.innerWidth})
+    $effect(() => {
+        isMobile = window.innerHeight > window.innerWidth
+        if (iframe.contentWindow) {
+            iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
+        }
+    })
 
     const draggable = {
         role: "marquee",
@@ -38,7 +43,7 @@ import type { PageData } from './$types';
 
 <main>
     <video controls>
-        <source src="\canadian-pacific-rail.jpg">
+        <source src="/469809101_8957130804348926_5146062620329518980_n.mp4" type="video/mp4">
         <track kind="captions">
     </video>
 
@@ -75,9 +80,9 @@ import type { PageData } from './$types';
 
     </article>
 
-    <article>
+    <article class="contact">
         <h2 id="contact">Contact:</h2>
-
+        <iframe title="Contact" src="/contact" frameborder="0" bind:this={iframe}></iframe>
     </article>
 
     <article class="other">
@@ -151,7 +156,7 @@ import type { PageData } from './$types';
         font-size: 5em;
     }
 
-    article.other {
+    article.other, article.contact {
         display: flex;
         flex-direction: column;
         align-items: center;
